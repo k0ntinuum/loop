@@ -11,7 +11,7 @@ function spin(q,r)
     f = copy(q)
     for i in 1:r
         for j in 1:n
-            p = f[i]
+            p = f[j]
             g = circshift(f,p)
             f = composition(g,f)
         end

@@ -9,6 +9,8 @@ include("demo.jl")
 
 # alph_letters = "_ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz!"
 # alph_numbers = "1234567890"
-alph = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+#alph = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+#alph = "O|@"
+alph = "abcdefghijklmnopqrstuvwxyz"
 n = length(alph)
-r = 20
+r = 4
