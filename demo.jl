@@ -9,15 +9,18 @@ end
 
 function nth_word(n :: Int64)
     s = string(n, base = length(alph))
-    a =  zeros(Int64, length(s))
-    for i in eachindex(a)
-        a[i] = parse(Int64, s[i:i], base = length(alph)) + 1
+    a =  Int64[]
+    for i in eachindex(s)
+        push!(a,parse(Int64, s[i:i], base = length(alph)) + 1)
     end
     a
 end
 
 function rgb(r,g,b) Base.print("\u1b[38;2;$(r);$(g);$(b)m") end
+
+
 function demo()
+    r = 10
     f = randomkey(n)
     rgb(255,255,255)
     @printf "f = "
@@ -25,11 +28,11 @@ function demo()
     @printf "\n"
     @printf "r = %d" r
     @printf "\n\n"
-    for i in 50000000:50000020
+    for i in 500000000:500000020
         p = Random.randperm(n)
         p = nth_word(i)
         #p = Random.randperm(n)
-        c = encrypt(p,f,r)
+        c = demoencrypt(p,f,r)
         d = decrypt(c,f,r)
         if p != d @printf "ERROR\n\n" end
         rgb(255,255,255)

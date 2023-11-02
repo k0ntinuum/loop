@@ -16,16 +16,16 @@ function decrypt(p, k, r)
     p
 end
 
-function demoencrypt(p, q, r, alph)
+function demoencrypt(p, q, r)
     F = Set()
     @printf "            "
-    printvec(p,alph)
+    #printvec(p)
     for i in 1:r
         k = spin(q,i)
         p = demoencode(p,k,F)
         p = reverse(p)
-        @printf "round %3d   " i
-        printvec(p,alph)
+#        @printf "round %3d   " i
+#        printvec(p)
     end
     @printf("\n%15d possible permutations\n", factorial(big(size(q)[begin])) )
     @printf("%d/%d unique_permutations/symbols_processed\n\n", length(F), r*length(p))
